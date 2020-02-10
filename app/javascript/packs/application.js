@@ -21,3 +21,18 @@ plugins:
   postcss-import: {}
   postcss-cssnext: {}
   tailwindcss: {}
+
+/* eslint no-console:0 */
+import "../css/application.css";
+import Vue from 'vue/dist/vue.esm';
+import TurbolinksAdapter from 'vue-turbolinks';
+import Vuelidate from 'vuelidate';
+
+Vue.use(TurbolinksAdapter);
+Vue.use(Vuelidate);
+
+document.addEventListener('turbolinks:load', () => {
+ const app = new Vue({
+   el: '[data-behavior="vue"]'
+ })
+})
